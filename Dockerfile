@@ -1,5 +1,5 @@
 # Stage 1: Build the application
-FROM oven/bun:1.1-slim as builder
+FROM oven/bun:latest as builder
 
 # Set working directory
 WORKDIR /app
@@ -17,7 +17,7 @@ COPY . .
 RUN bun next build
 
 # Stage 2: Run the application
-FROM oven/bun:1.1-alpine as runner
+FROM oven/bun:alpine as runner
 
 # Set environment variables (optional, based on your app)
 ENV NODE_ENV=production
